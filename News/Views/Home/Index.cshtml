@@ -1,0 +1,41 @@
+﻿@using News.Models
+
+@model List<PravdaNews>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>News</title>
+</head>
+<body>
+    <div>
+        <h2 class="text-center">News</h2>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">@Html.ActionLink("Time", "Index", new { sort=ViewBag.Time })</th>
+                    <th scope="col">@Html.ActionLink("DayNews", "Index", new { sort=ViewBag.News })</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{ int i = 1;}
+                @foreach (var n in Model)
+                {
+                    <tr>
+                        <th scope="row">@i</th>
+                        <td>
+                            @n.Time
+                        </td>
+                        <td>
+                            @n.DayNews
+                        </td>
+                    </tr>
+                    i++;
+                }
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
